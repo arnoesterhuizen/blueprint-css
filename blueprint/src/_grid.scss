@@ -2,7 +2,16 @@
 @function -blueprint-grid-width($n) {
 	@return $n * $-blueprint-grid-width + ($n - 1) * $-blueprint-grid-gutter;
 }
- 
+
+/* Clearing floats without extra markup
+   Based on Simple Clearing of Floats at Sitepoint
+   [http://www.sitepoint.com/simple-clearing-of-floats/] &
+   [http://www.quirksmode.org/css/clearing.html] */
+.clearfix, .container {
+	overflow: hidden;
+	width: 100%;
+}
+
 /* A container should group all your columns. */
 .container {
 	width: -blueprint-grid-width($-blueprint-grid-columns);
@@ -136,21 +145,6 @@ hr {
 		background: #fff;
 		color: #fff;
 		visibility: hidden;
-	}
-}
- 
-/* Clearing floats without extra markup
-	 Based on How To Clear Floats Without Structural Markup by PiE
-	 [http://www.positioniseverything.net/easyclearing.html] */
-.clearfix, .container {
-	display: block;
-	&:after {
-		content: "\0020";
-		display: block;
-		height: 0;
-		clear: both;
-		visibility: hidden;
-		overflow:hidden;
 	}
 }
  
